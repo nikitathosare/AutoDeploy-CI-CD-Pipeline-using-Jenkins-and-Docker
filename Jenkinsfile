@@ -4,7 +4,7 @@ pipeline {
     environment {
         // ===== Deployment Server Details =====
         EC2_USER = "ubuntu"
-        EC2_IP = "13.60.254.208"
+        EC2_IP = "51.20.252.245"
 
         // ===== Application Details =====
         APP_DIR = "/home/ubuntu/flask-weather-app"
