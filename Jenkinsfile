@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/your-username/AutoDeploy.git'
+                git 'https://github.com/nikitathosare/AutoDeploy-CI-CD-Pipeline-using-Jenkins-and-Docker.git'
             }
         }
 
