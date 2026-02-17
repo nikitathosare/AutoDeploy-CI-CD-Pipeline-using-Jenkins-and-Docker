@@ -7,9 +7,9 @@ pipeline {
         EC2_IP   = "51.20.252.245"
 
         // ===== Application Details =====
-        APP_DIR    = "/home/ubuntu/flask-weather-app"
-        APP_NAME   = "python"
-        IMAGE_NAME = "mypyapp"
+        APP_DIR    = "/home/ubuntu/mood-journal-app"
+        APP_NAME   = "moodjournal"
+        IMAGE_NAME = "mood-journal-image"
         PORT       = "5000"
 
         // ===== Jenkins Credential ID =====
@@ -24,40 +24,40 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                echo "Cloning source code from GitHub"
+                echo "📥 Cloning Mood Journal source code from GitHub"
                 git branch: 'main',
-                    url: 'https://github.com/nikitathosare/AutoDeploy-CI-CD-Pipeline-using-Jenkins-and-Docker.git'
+                    url: 'https://github.com/nikitathosare/mood-journa.git'
             }
         }
 
         stage('Deploy to EC2 Server') {
             steps {
-                echo "Deploying application to remote EC2 server"
+                echo "🚀 Deploying Mood Journal application to EC2 server"
 
                 sshagent([CREDENTIAL_ID]) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_IP} "
                         set -e
 
-                        echo 'Checking application directory'
+                        echo '📂 Checking Mood Journal app directory'
                         if [ ! -d ${APP_DIR} ]; then
-                            echo 'Directory not found, cloning repository'
-                            git clone https://github.com/nikitathosare/AutoDeploy-CI-CD-Pipeline-using-Jenkins-and-Docker.git ${APP_DIR}
+                            echo '📥 Directory not found, cloning Mood Journal repository'
+                            git clone https://github.com/nikitathosare/mood-journa.git ${APP_DIR}
                         fi
 
                         cd ${APP_DIR}
 
-                        echo 'Stopping old container if exists'
+                        echo '🛑 Stopping old Mood Journal container (if exists)'
                         docker stop ${APP_NAME} || true
                         docker rm ${APP_NAME} || true
 
-                        echo 'Building Docker image'
+                        echo '🐳 Building Mood Journal Docker image'
                         docker build -t ${IMAGE_NAME} .
 
-                        echo 'Running new Docker container'
+                        echo '🚀 Running new Mood Journal Docker container'
                         docker run -d -p ${PORT}:${PORT} --name ${APP_NAME} ${IMAGE_NAME}
 
-                        echo 'Deployment completed successfully'
+                        echo '✅ Mood Journal application deployed successfully'
                     "
                     """
                 }
@@ -67,10 +67,10 @@ pipeline {
 
     post {
         success {
-            echo "CI/CD Pipeline executed successfully!"
+            echo "🎉 Mood Journal CI/CD Pipeline executed successfully!"
         }
         failure {
-            echo "CI/CD Pipeline failed. Check logs."
+            echo "❌ Mood Journal CI/CD Pipeline failed. Please check logs."
         }
     }
 }
