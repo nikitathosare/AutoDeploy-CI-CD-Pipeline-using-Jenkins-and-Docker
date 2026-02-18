@@ -1,5 +1,4 @@
 # AutoDeploy-CI-CD-Pipeline-using-Jenkins-and-Docker
-# AutoDeploy-CI-CD-Pipeline-using-Jenkins-and-Docker
 
 A **production-style CI/CD pipeline** that automatically builds and deploys a Dockerized Python application to a **remote AWS EC2 server** using **Jenkins** and **SSH**.
 
