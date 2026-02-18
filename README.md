@@ -45,12 +45,16 @@ Developer -> GitHub Repository -> Jenkins Server (CI/CD) -> (SSH)AWS EC2 Deploym
 ##  Project Structure
 
 AutoDeploy-CI-CD-Pipeline/
-│
-├── app.py # Python Flask application
-├── requirements.txt # Python dependencies
-├── Dockerfile # Docker image definition
-├── Jenkinsfile # CI/CD pipeline script
-└── README.md # Project documentation
+
+── app.py # Python Flask application
+
+── requirements.txt # Python dependencies
+
+── Dockerfile # Docker image definition
+
+── Jenkinsfile # CI/CD pipeline script
+
+── README.md # Project documentation
 
 
 ---
