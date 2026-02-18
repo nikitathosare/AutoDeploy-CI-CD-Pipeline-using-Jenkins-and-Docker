@@ -26,18 +26,14 @@ This project automates the complete deployment process:
 ##  Architecture
 ![](./successful/Architecture.png)
 
-Developer
-    |
-    v
-GitHub Repository
-    |
-    v
-Jenkins Server (CI/CD)
-    |
-    v
-(SSH)AWS EC2 Deployment Server
-    |
-    v
+Developer ->
+
+GitHub Repository ->
+    
+Jenkins Server (CI/CD) ->
+
+(SSH)AWS EC2 Deployment Server ->
+    
 Docker Container (Live App)
 
 
