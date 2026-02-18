@@ -25,6 +25,7 @@ This project automates the complete deployment process:
 
 ##  Architecture
 ![](./successful/Architecture.png)
+
 Developer
     |
     v
