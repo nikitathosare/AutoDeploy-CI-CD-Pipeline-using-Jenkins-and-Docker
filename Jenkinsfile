@@ -7,7 +7,11 @@ pipeline {
         EC2_IP   = "51.20.252.245"
 
         // ===== Application Details =====
-        APP_DIR    = "/home/ubuntu"
+=======
+
+        APP_DIR    = "/home/ubuntu/flask-weather-app"
+>>>>>>> 1f7ffa58a0c3c49e1e4cd943dba7ae3b42c15a9c
+
         APP_NAME   = "python"
         IMAGE_NAME = "mypyapp"
         PORT       = "5000"
@@ -73,4 +77,8 @@ pipeline {
             echo " CI/CD Pipeline failed. Check logs."
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1f7ffa58a0c3c49e1e4cd943dba7ae3b42c15a9c
